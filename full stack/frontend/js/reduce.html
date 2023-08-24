@@ -1,0 +1,12 @@
+<script>
+const num = [3, 3, 2, 2, 9, 9, 1, 1];
+
+const uniqueNums = num.reduce((unique, n) => {
+  if (!unique.includes(n)) {
+    unique.push(n);
+  }
+  return unique;
+}, []);
+
+console.log(uniqueNums);
+</script>

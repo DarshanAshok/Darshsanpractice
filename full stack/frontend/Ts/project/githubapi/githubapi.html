@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+
+    </div>
+
+
+    <button onclick="  apicaller()">click me</button>
+    <script>
+       
+
+        async function apicaller() {
+            let div = document.getElementById('root')
+            let apiData = fetch('https://api.github.com/users')
+            apiData = await (await apiData).json()
+
+
+          
+
+            apiData.map((item)=>{
+                let h1 = document.createElement('h1')
+            let h2 = document.createElement('h2')
+            let h3 = document.createElement('h3')
+            let h4 = document.createElement('h4')
+            let h5 = document.createElement('h5')
+            let h6 = document.createElement('h6')
+            let h7 = document.createElement('h7')
+            let h8 = document.createElement('h8')
+            let h9 = document.createElement('h9')
+            let h10 = document.createElement('h10')
+            let h11 = document.createElement('h11')
+            let h12 = document.createElement('h12')
+            let h13 = document.createElement('h13')
+            let h14 = document.createElement('h14')
+            let h15 = document.createElement('h15')
+            let h16 = document.createElement('h16')
+            let h17 = document.createElement('h17')
+            let h18 = document.createElement('h18')
+            
+                console.log("im working")
+                h1.innerHTML=` login :${item.login}`
+                h2.innerHTML=` id  :${item.id}`
+                h3.innerHTML=` node_id :${item.node_id}`
+                h4.innerHTML=` avatar_url :${item.avatar_url}`
+                h5.innerHTML=` gravatar_id :${item.gravatar_id}`
+                h6.innerHTML=` url :${item.url}`
+                h7.innerHTML=` html_url :${item.html_url}`
+                h8.innerHTML=` followers_url :${item.followers_url}`
+                h9.innerHTML=` following_url :${item.following_url}`
+                h10.innerHTML=` gists_url :${item.gists_url}`
+                h11.innerHTML=` starred_url :${item.starred_url}`
+                h12.innerHTML=` subscriptions_url :${item.subscriptions_url}`
+                h13.innerHTML=` organizations_url :${item.organizations_url}`
+                h14.innerHTML=` repos_url :${item.repos_url}`
+                h15.innerHTML=` events_url :${item.events_url}`
+                h16.innerHTML=` received_events_url :${item.received_events_url}`
+                h17.innerHTML=` type :${item.type}`
+                h18.innerHTML=` site_admin :${item.site_admin}`
+                div.appendChild(h1)
+                div.appendChild(h2)
+                div.appendChild(h3)
+                div.appendChild(h4)
+                div.appendChild(h5)
+                div.appendChild(h6)
+                div.appendChild(h7)
+                div.appendChild(h8)
+                div.appendChild(h9)
+                div.appendChild(h10)
+                div.appendChild(h11)
+                div.appendChild(h12)
+                div.appendChild(h13)
+                div.appendChild(h14)
+                div.appendChild(h15)
+                div.appendChild(h16)
+                div.appendChild(h17)
+                div.appendChild(h18)
+            
+
+
+                
+
+
+            })
+            console.log()
+        }
+
+    </script>
+
+
+
+</body>
+</html>

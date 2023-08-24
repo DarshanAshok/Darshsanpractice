@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+
+    </div>
+  
+
+
+    <button onclick="  apicaller()">click me</button>
+    <script>
+       
+
+        async function apicaller() {
+            let div = document.getElementById('root')
+            let apiData = fetch('https://fakestoreapi.com/products')
+            apiData = await (await apiData).json()
+
+
+          apiData.map((item)=>{
+        let image = document.createElement('img')
+        image.src = item.image
+        image.style.width="200px"
+        image.style.height="200px"
+        image.controls=true
+        div.appendChild(image)
+
+          
+          })
+            console.log(apiData)
+        }
+
+    </script>
+
+
+
+</body>
+</html>

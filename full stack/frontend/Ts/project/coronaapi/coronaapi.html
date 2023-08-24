@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+
+    <button onclick="  apicaller()">click me</button>
+    <script>
+       
+
+        async function apicaller() {
+            let div = document.getElementById('root')
+            let apiData = fetch('https://data.covid19india.org/data.json')
+            apiData = await (await apiData).json()
+
+
+          
+
+            apiData.cases_time_series.map((item)=>{
+                let h1 = document.createElement('h1')
+            let h2 = document.createElement('h2')
+            let h3 = document.createElement('h3')
+            let h4 = document.createElement('h4')
+            
+                console.log("im working")
+                h1.innerHTML=` dailyconfirmed :${item.dailyconfirmed}`
+                h2.innerHTML=` date :${item.date}`
+                h3.innerHTML=` totalconfirmed :${item.totalconfirmed}`
+                h4.innerHTML=` totaldeceased :${item.totaldeceased}`
+                
+                div.appendChild(h1)
+                div.appendChild(h2)
+                div.appendChild(h3)
+                div.appendChild(h4)
+                
+
+
+            })
+            console.log(apiData.cases_time_series)
+        }
+
+    </script>
+</body>
+
+</html>
