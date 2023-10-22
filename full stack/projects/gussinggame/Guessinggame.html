@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Guessing Game</h1>
+        <h1 id="show"></h1>
+        <button onclick="randomNumberGenerator()">click me to generate number</button>
+    </center>
+ 
+    <script>
+
+        function randomNumberGenerator(){
+
+
+           let h1= document.getElementById('show')
+           h1.innerHTML=Math.floor(Math.random()*6+1) 
+            console.log("im printimg")
+        }
+    </script>
+</body>
+</html>

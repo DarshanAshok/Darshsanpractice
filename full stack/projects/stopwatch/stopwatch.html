@@ -1,0 +1,92 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch</title>
+<link rel="stylesheet" href="./stopwatch.css">
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #stopwatch {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  #controls {
+    display: flex;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+  <div id="stopwatch">00:00:00</div>
+  <div id="controls">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+  </div>
+  <script>
+    let startTime;
+    let elapsedTime = 0;
+    let timerInterval;
+
+    const stopwatch = document.getElementById('stopwatch');
+    const startButton = document.getElementById('start');
+    const stopButton = document.getElementById('stop');
+    const resetButton = document.getElementById('reset');
+
+    function updateTime() {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - startTime + elapsedTime;
+      const formattedTime = formatTime(deltaTime);
+      stopwatch.textContent = formattedTime;
+    }
+
+    function formatTime(milliseconds) {
+      const totalSeconds = Math.floor(milliseconds / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      return `${formatDigit(hours)}:${formatDigit(minutes)}:${formatDigit(seconds)}`;
+    }
+
+    function formatDigit(number) {
+      return number.toString().padStart(2, '0');
+    }
+
+    startButton.addEventListener('click', () => {
+      if (!timerInterval) {
+        startTime = Date.now();
+        timerInterval = setInterval(updateTime, 1000);
+      }
+    });
+
+    stopButton.addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        elapsedTime += Date.now() - startTime;
+      }
+    });
+
+    resetButton.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      elapsedTime = 0;
+      stopwatch.textContent = '00:00:00';
+    });
+  </script>
+  <link rel="stylesheet" href="./topwatch.js">
+</body>
+</html>

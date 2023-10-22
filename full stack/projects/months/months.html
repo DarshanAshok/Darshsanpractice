@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Guessing Months</h1>
+        <h1 id="show"></h1>
+        <button onclick="randomNumberGenerator()">click me to generate Months</button>
+    </center>
+ 
+    <script>
+
+        function randomNumberGenerator(){
+let num=Math.floor(Math.random()*7+1)
+
+           let h1= document.getElementById('show')
+          
+            switch(num){
+                case 1:
+                h1.innerHTML= "January"
+                break;
+                case 2:
+                h1.innerHTML= "February"
+                break;
+                case 3:
+                h1.innerHTML= "March"
+                break;
+                case 4:
+                h1.innerHTML= "April"
+                break;
+                case 5:
+                h1.innerHTML= "May"
+                break;
+                case 6:
+                h1.innerHTML= "June"
+                break;
+                case 7:
+                h1.innerHTML= "July"
+                break;
+                case 8:
+                h1.innerHTML= "August"
+                break;
+                case 9:
+                h1.innerHTML= "September"
+                break;
+                case 10:
+                h1.innerHTML= "October"
+                break;
+                case 11:
+                h1.innerHTML= "November"
+                break;
+                case 12:
+                h1.innerHTML= "Decemer"
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
